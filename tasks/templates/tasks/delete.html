@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do App</title> 
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <style>
+        .submit{
+            background-color: #6ba3e8;
+        }
+    </style>
+</head>
+<body>
+    <p>are you sure u want  to  delete "{{item}}" ? </p>
+    <a class="btn btn-sm btn-info" href="{% url 'list' %}">Cancel</a>
+
+    <form method="POST"action="">
+        {% csrf_token %}
+        <input class="btn btn-sm btn-danger" type="submit" name="Yes">
+
+    </form>
+
+</body>
+</html>

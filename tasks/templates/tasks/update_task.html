@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+     <!-- Latest compiled and minified CSS -->
+     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+
+     <!-- jQuery library -->
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+ 
+     <!-- Latest compiled JavaScript -->
+     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+     <style>
+        .submit{
+            background-color: #6ba3e8;
+            -webkit-box-reflect: below 1px linear-gradient(transparent,rgba(15, 15, 15, 0.267));
+        }
+
+     </style>
+</head>
+<body>
+    <h3>Update Task</h3>
+    <form method="POST"action="">
+
+        {% csrf_token %}
+
+        {{form}}
+
+        <input class="btn btn-info"type="submit" name="Update Task">
+        
+    </form>
+</body>
+</html>

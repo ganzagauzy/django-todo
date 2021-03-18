@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TODOS APP 1 </title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+        
+  
+    <style>
+        body{
+            background-color:  #060a1f;
+
+
+
+        }
+        h3{
+            color: #fff;
+        }
+        p{
+            font-size: larger;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            color: #fff;
+            margin: 1rem;
+        }
+
+       
+            
+       
+        input{
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            box-sizing: border-box;
+           
+        }
+
+        input::placeholder{
+            color: #d3d3d3;
+
+        }
+
+        .submit{
+            background-color: rgb(54, 54, 54);
+            margin: 20px;
+            
+        }
+        .center-column{
+            
+            width: 1000px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color:rgb(1, 5, 26);
+            border-radius: 3px;
+            box-shadow: 6px 2px 30px 0px rgba(0, 0, 0, a0.75);
+            
+
+
+        }
+
+        .item-row{
+            background-color: black;
+            margin: 10px;
+            padding: 20px;
+            border-radius: 3px;
+            color: #fff;
+            font-size: 16px;
+            box-shadow: 0px -1px 10px -4px rgba(0, 0, 0, a0.75);
+        }
+        .btn-danger{
+            background-color: #ffae19;
+            border-color: #e59400;
+        }
+        
+        
+
+    </style>   
+</head>
+<body>
+
+    <div class="center-column">
+        <h3><marquee behaviour="left"scroll amount="100"><i><u>WORK TO DO </i></u></i></marquee></h3>
+        <p>Add your todos here</p>
+        <form method="POST" action "/">
+            {% csrf_token %}
+            {{form.title}}
+            <input class="btn btn-info" type="submit"name="create Task">  
+        </form> 
+        {% for task in tasks %}
+        <div class="item-row">
+            <a class="btn btn-sm btn-info" href="{% url 'update_task' task.id %}">Update</a>
+            <a class="btn btn-sm btn-danger" href="{% url 'delete' task.id %}">Delete</a>
+
+            
+            {% if task.complete == True %}
+            <strike>{{task}}</strike>
+            {% else %}
+            <span>{{task}}</span>
+                
+            {% endif %}
+                
+        </div>
+
+        {% endfor %}  
+    </div> 
+
+</body>
+</html>
