@@ -1,6 +1,4 @@
 
-
-from astroid.scoped_nodes import objects
 from django.http import HttpResponse
 from django.shortcuts import redirect, render
 
